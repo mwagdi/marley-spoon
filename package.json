@@ -1,0 +1,50 @@
+{
+	"name": "marley-spoon-task",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint src",
+		"test": "jest",
+		"flow": "flow",
+		"format": "prettier --write \"**/*.+(js|jsx|json|css|scss)\"",
+		"watch": "webpack --watch",
+		"start": "webpack-dev-server --open --mode development",
+		"build": "webpack --mode production",
+		"validate": "npm run lint && npm run format && npm run flow",
+		"precommit": "npm run validate"
+	},
+	"author": "Mahmoud Wagdi",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.5.0",
+		"@babel/preset-env": "^7.5.2",
+		"@babel/preset-react": "^7.0.0",
+		"babel-eslint": "^10.0.2",
+		"babel-loader": "^8.0.6",
+		"css-loader": "^3.0.0",
+		"eslint": "^6.0.1",
+		"eslint-loader": "^2.2.1",
+		"file-loader": "^4.0.0",
+		"flow-bin": "^0.102.0",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"husky": "^3.0.0",
+		"jest": "^24.8.0",
+		"node-sass": "^4.12.0",
+		"prettier": "1.18.2",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.35.2",
+		"webpack-cli": "^3.3.5",
+		"webpack-dev-server": "^3.7.2"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-redux": "^7.1.0",
+		"react-router-dom": "^5.0.1",
+		"redux": "^4.0.4"
+	}
+}
