@@ -1,5 +1,6 @@
 import React from 'react'
+import Router from './routes/Router';
 
 export default () => (
-    <h1>Hello</h1>
+    <Router />
 )
