@@ -1,0 +1,2 @@
+export const SHOW_RECIPES = "SHOW_RECIPES"
+export const LOAD_ASSETS = "LOAD_ASSETS"

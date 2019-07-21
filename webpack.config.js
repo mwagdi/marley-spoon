@@ -1,10 +1,13 @@
 const path = require("path");
+const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	entry: "./src/index.js",
 	devServer: {
-		contentBase: "./dist"
+		contentBase: "./dist",
+		historyApiFallback: true
 	},
 	module: {
 		rules: [
@@ -42,14 +45,30 @@ module.exports = {
 			}
 		]
 	},
+	resolve: {
+		alias: {
+		  Components: path.resolve(__dirname, 'src/components/'),
+		  Containers: path.resolve(__dirname, 'src/containers/'),
+		  Actions: path.resolve(__dirname, 'src/store/actions/'),
+		}
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "Marley Spoon Task",
 			template: "./public/index.html"
-		})
+		}),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+			'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+		}),
+		new Dotenv()
 	],
 	output: {
 		filename: "main.js",
-		path: path.resolve(__dirname, "dist")
+		path: path.resolve(__dirname, "dist"),
+		publicPath: '/'
+	},
+	node: {
+		fs: 'empty'
 	}
 };

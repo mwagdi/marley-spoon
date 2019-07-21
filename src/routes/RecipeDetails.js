@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
 export default () => {
-    return (
-        <div></div>
-    )
-}
+    useEffect(() => console.log(process.env))
+	return <div>dv</div>;
+};

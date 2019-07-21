@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react'
-
+import React from "react";
+import { RecipeListContainer } from 'Containers'
 export default () => {
-    useEffect(() => {
-        console.log("hello")
-    })
-    return (
-        <React.Fragment>
-            <h1>Hello</h1>
-        </React.Fragment>
-    )
-}
+	return (
+		<div className="main-container">
+			<RecipeListContainer />
+		</div>
+	);
+};
