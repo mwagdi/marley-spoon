@@ -13,14 +13,14 @@ const RecipeDetailsContainer = ({
 	fetchEntries
 }) => {
 	const [recipeTags, setTags] = useState([]);
-	const [chef, setChef] = useState("");
+	const [chef, setChef] = useState(null);
 	const [mounted, setMounted] = useState(false);
 	useEffect(() => {
 		if (!mounted) {
 			if (isEmpty(recipe)) {
 				fetchEntries();
 			} else {
-				setChef(chefs[recipe.chef.sys.id]);
+				setChef(recipe.chef ? chefs[recipe.chef.sys.id] : null);
 				if (recipe.tags) {
 					setTags(recipe.tags.map(tag => tags[tag.sys.id]));
 					setMounted(true);

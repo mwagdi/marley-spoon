@@ -11,7 +11,7 @@ const RecipeListItem = ({ id, recipe, image }) => (
 );
 
 export const RecipeList = ({ recipeIds, recipesById, assets }) => (
-	<ul className="RecipeList flex-container">
+	<ul className="RecipeList flex-container flex-wrap">
 		{recipeIds.map((id, i) => (
 			<RecipeListItem
 				key={i}

@@ -1,0 +1,16 @@
+.details{
+    padding: 2em;
+    &__right{
+        padding: 1em;
+    }
+}
+.tags{
+    &__item{
+        text-transform: uppercase;
+        color: white;
+        background: #7c7c7c;
+        border-radius: 4px;
+        margin-right: 1em;
+        padding: 0.4em;
+    }
+}
