@@ -1,2 +1,2 @@
-export const SHOW_RECIPES = "SHOW_RECIPES"
-export const LOAD_ASSETS = "LOAD_ASSETS"
+export const SHOW_ENTRIES = "SHOW_ENTRIES";
+export const LOAD_ASSETS = "LOAD_ASSETS";

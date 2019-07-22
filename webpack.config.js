@@ -1,10 +1,10 @@
 const path = require("path");
-const webpack = require("webpack")
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-	entry: "./src/index.js",
+	entry: ["@babel/polyfill", "./src/index.js"],
 	devServer: {
 		contentBase: "./dist",
 		historyApiFallback: true
@@ -23,7 +23,9 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 					options: {
-						presets: ["@babel/preset-env", "@babel/preset-react"]
+						presets: ["@babel/preset-env", "@babel/preset-react",{
+							plugins: ['@babel/plugin-proposal-class-properties']
+						}]
 					}
 				}
 			},
@@ -47,9 +49,10 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-		  Components: path.resolve(__dirname, 'src/components/'),
-		  Containers: path.resolve(__dirname, 'src/containers/'),
-		  Actions: path.resolve(__dirname, 'src/store/actions/'),
+			Components: path.resolve(__dirname, "src/components/"),
+			Containers: path.resolve(__dirname, "src/containers/"),
+			Routes: path.resolve(__dirname, "src/routes/"),
+			Actions: path.resolve(__dirname, "src/store/actions/")
 		}
 	},
 	plugins: [
@@ -58,17 +61,17 @@ module.exports = {
 			template: "./public/index.html"
 		}),
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-			'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+			"process.env.DEBUG": JSON.stringify(process.env.DEBUG)
 		}),
 		new Dotenv()
 	],
 	output: {
 		filename: "main.js",
 		path: path.resolve(__dirname, "dist"),
-		publicPath: '/'
+		publicPath: "/"
 	},
 	node: {
-		fs: 'empty'
+		fs: "empty"
 	}
 };

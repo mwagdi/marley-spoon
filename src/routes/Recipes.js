@@ -1,5 +1,5 @@
 import React from "react";
-import { RecipeListContainer } from 'Containers'
+import { RecipeListContainer } from "Containers";
 export default () => {
 	return (
 		<div className="main-container">

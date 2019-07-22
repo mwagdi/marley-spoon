@@ -1,2 +1,2 @@
-export { fetchRecipes } from './recipes'
-export { fetchAssets } from './assets'
+export { fetchEntries } from "./entries";
+export { fetchAssets } from "./assets";
