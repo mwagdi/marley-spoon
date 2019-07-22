@@ -6,7 +6,7 @@ import assets from "./assets";
 
 export default combineReducers({
 	recipes,
-    assets,
-    chefs,
-    tags
+	assets,
+	chefs,
+	tags
 });

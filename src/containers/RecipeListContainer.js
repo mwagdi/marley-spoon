@@ -9,12 +9,18 @@ class RecipeListContainer extends Component {
 	}
 	render() {
 		const { assets, recipeIds, recipesById } = this.props;
-		return <RecipeList assets={assets} recipeIds={recipeIds} recipesById={recipesById} />;
+		return (
+			<RecipeList
+				assets={assets}
+				recipeIds={recipeIds}
+				recipesById={recipesById}
+			/>
+		);
 	}
 }
 
 const mapStateToProps = state => {
-	const { recipeIds, recipesById } = state.recipes
+	const { recipeIds, recipesById } = state.recipes;
 	return {
 		recipeIds,
 		recipesById,

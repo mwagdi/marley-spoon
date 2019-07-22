@@ -1,14 +1,14 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 import { SHOW_ENTRIES } from "../types";
 
 const recipeIds = (state = [], action) => {
 	switch (action.type) {
 		case SHOW_ENTRIES:
-			return action.entries.reduce((arr,el) => {
-				if(el.sys.contentType.sys.id === "recipe"){
-					arr.push(el.sys.id)
+			return action.entries.reduce((arr, el) => {
+				if (el.sys.contentType.sys.id === "recipe") {
+					arr.push(el.sys.id);
 				}
-				return arr
+				return arr;
 			}, []);
 
 		default:
@@ -19,12 +19,12 @@ const recipeIds = (state = [], action) => {
 const recipesById = (state = {}, action) => {
 	switch (action.type) {
 		case SHOW_ENTRIES:
-			return action.entries.reduce((obj,el) => {
-                if(el.sys.contentType.sys.id === "recipe"){
-                    obj[el.sys.id] = el.fields
-                }
-                return obj;
-            }, {});
+			return action.entries.reduce((obj, el) => {
+				if (el.sys.contentType.sys.id === "recipe") {
+					obj[el.sys.id] = el.fields;
+				}
+				return obj;
+			}, {});
 
 		default:
 			return state;
@@ -34,4 +34,4 @@ const recipesById = (state = {}, action) => {
 export default combineReducers({
 	recipeIds,
 	recipesById
-})
+});
